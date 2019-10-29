@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <code>
+    {
+      // Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+      // description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+      // is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+      // used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+      // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+      // Placeholders with the same ids are connected.
+      // Example:
+      // "Print to console": {
+      // 	"scope": "javascript,typescript",
+      // 	"prefix": "log",
+      // 	"body": [
+      // 		"console.log('$1');",
+      // 		"$2"
+      // 	],
+      // 	"description": "Log output to console"
+      // }
+    
+      "Setup tests": {
+        "scope": "javascript,typescript",
+        "prefix": "tsr",
+        "body": [
+          "import React from 'react'",
+          "import { render } from '@testing-library/react'",
+          "import { renderWithRedux } from 'test-utils'",
+          "import { I18nextProvider } from 'react-i18next'",
+          "import i18n from '../i18nForTests'",
+          "\/\/ import renderer from 'react-test-renderer'",
+          "import $1 from '$2'",
+          "\nconst setup = () => {",
+          "\tconst utils = renderWithRedux(<$3 />)",
+          "\tconst $3 = utils.getByTestId('$4'))",
+          "\treturn { $5, ...utils }",
+          "}",
+          "\ntest('render without errors', () => {",
+          "\tconst { getByTestId } = setup()",
+          "\tconst tree = renderer.create(<$6 />).toJSON()",
+          "\n\texpect(getByTestId('$7')).toBeInTheDocument()",
+          "\texpect(tree).toMatchSnapshot()",
+          "})",
+          "\t$8"
+        ],
+        "description": "Konfiguruje środowisko do testowania komponentu"
+      }
+    }
+    
+    
+    
+    // test("render without errors", () => {
+    // 	const { getByTestId } = setup()
+    // 	expect(getByTestId("accommodation")).toBeInTheDocument()
+    // })
+    
+    
+
+  </code>
+</body>
+</html>
